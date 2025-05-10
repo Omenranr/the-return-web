@@ -9,12 +9,9 @@ const SIGNOUT_ERROR_URL = "/error";
 export default async function SignOutPage({
   searchParams,
 }: {
-  // Next.js ≥ 15 requires awaiting searchParams before using it
-  searchParams:
-    | { callbackUrl?: string }
-    | Promise<{ callbackUrl?: string }>;
+  searchParams: Promise<{ callbackUrl?: string }>
 }) {
-  const { callbackUrl } = await searchParams;
+  const { callbackUrl } = await searchParams;         // ✅ still await
   const redirectTo = callbackUrl ?? "/";
 
   /* --- server action ----------------------------------------- */
