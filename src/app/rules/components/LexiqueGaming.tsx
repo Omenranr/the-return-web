@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { CardTemplate } from "./_CardTemplate";
 import { Aside } from "./Aside";
 

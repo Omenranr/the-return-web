@@ -35,7 +35,7 @@ export default function LexiqueRoleplay() {
     ],
     [
       /* custom emoji rendered with <Image> */
-      <Image src="/discord.svg" alt="Discord" width={24} height={24} />,
+      <Image key="discord-icon" src=".//discord.svg" alt="Discord" width={24} height={24} />,
       <>
         <strong>DISCORD :</strong> pour parler de Discord en jeu, dites que vous
         allez sur « l’intranet » afin d’éviter toute ambiguïté avec téléphone ou

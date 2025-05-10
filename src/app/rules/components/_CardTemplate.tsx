@@ -1,5 +1,6 @@
 /*  A tiny wrapper so every card looks the same  */
 import React from "react";
+import Image from "next/image";
 
 export const CardTemplate = ({
   title,
@@ -12,7 +13,7 @@ export const CardTemplate = ({
 }) => (
   <>
     {headerImg && (
-      <img src={headerImg} alt={title} className="w-full object-cover" />
+      <Image src={headerImg} alt={title} className="w-full object-cover" />
     )}
 
     <h1 className="px-6 py-4 text-2xl font-extrabold tracking-wide text-white">
