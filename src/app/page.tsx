@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { redirect } from 'next/navigation'
+import { redirect } from 'next/navigation';
 import { auth } from "~/server/auth";      // ← path to  your auth helper
-import CookieBanner from './_components/CookieBanner'  // client component
+import CookieBanner from './_components/CookieBanner';  // client component
+import Navbar from './_components/NavBar';
 
 /**
  * Landing page – updated: distinct top‑bar colour for the navbar so it stands
@@ -28,40 +29,7 @@ export default async function Home() {
 
 
       {/* ───────────────────────── Navigation (distinct colour) ───────────────────────── */}
-      <header className="relative z-20 bg-[#1b0068]/95 shadow-lg backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-12 py-4">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="The Return RP" width={70} height={20} priority />
-          </Link>
-
-          {/* Desktop nav links */}
-          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide">
-            {['Accueil', 'The Return', 'Jouer', 'Réglement', 'Contact'].map((label) => (
-              <Link
-                key={label}
-                href={`#${label.toLowerCase()}`}
-                className="relative after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:bg-orange-500 after:scale-x-0 after:transition-transform hover:after:scale-x-100"
-              >
-                {label}
-              </Link>
-            ))}
-
-            {/* Discord icon */}
-            <Link href="https://discord.gg/" className="text-2xl">
-              <Image src="/discord.svg" alt="" width={40} height={40} />
-            </Link>
-
-            {/* CTA */}
-            <Link
-              href="/signin"
-              className="ml-2 rounded-md bg-orange-500 px-4 py-2 font-semibold hover:bg-orange-400 transition-colors whitespace-nowrap"
-            >
-              Se connecter
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <Navbar />
 
       {/* ───────────────────────── Hero ───────────────────────── */}
       <main className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-[minmax(0,1fr)_28rem] gap-y-16 lg:gap-x-24 px-6 md:px-12 pt-24 pb-32">

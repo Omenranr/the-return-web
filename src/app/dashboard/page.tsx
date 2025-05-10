@@ -30,7 +30,7 @@ export default function DashboardPage() {
       <header className="bg-[#311c8a]/95 backdrop-blur shadow-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
           <Link href="/">
-            <Image src="/logo.png" alt="The Return RP" width={70} height={20} priority />
+            <Image src="/logo.jpg" alt="The Return RP" width={70} height={20} priority />
           </Link>
 
           <nav className="flex items-center gap-8 text-sm font-semibold">
