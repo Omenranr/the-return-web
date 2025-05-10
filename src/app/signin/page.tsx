@@ -10,11 +10,12 @@ const SIGNIN_ERROR_URL = "/error";
 export default async function SignInPage({
   searchParams,
 }: {
-  searchParams: Promise<{ callbackUrl?: string }> | { callbackUrl?: string };
+  // 1.  **only one variant** (Promise)
+  searchParams: Promise<{ callbackUrl?: string }>
 }) {
-  // ✅ satisfy the "await first" rule
-  const { callbackUrl } = await searchParams;
-  const redirectTo = callbackUrl ?? "/dashboard";
+  // 2.  still `await` because it’s a Promise
+  const { callbackUrl } = await searchParams
+  const redirectTo = callbackUrl ?? "/dashboard"
 
   // ── server action ────────────────────────────────────────────────
   async function handleDiscordSignIn() {
