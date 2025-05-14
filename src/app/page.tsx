@@ -57,7 +57,7 @@ export default async function Home() {
             Si vous êtes à la recherche d’une expérience  de grande qualité sur un serveur GTA RP français, The Return RP est là pour répondre à vos attentes. Notre serveur est conçu pour offrir une immersion totale dans l’univers de Grand Theft Auto, avec des scénarios et des missions passionnants, une économie dynamique, et un Lore de folie. 
           </p>
 
-          <p className="font-semibold">
+          <p className="text-2xl md:text-3xl font-bold">
             Votre aventure commence ici !
           </p>
         </section>
@@ -89,6 +89,7 @@ export default async function Home() {
               <Link
                 href="https://discord.gg/6cYYUEDhCQ"
                 className="mt-6 block w-full rounded-md bg-[#5865F2] text-white text-center py-2 font-semibold hover:bg-[#4752c4] transition-colors"
+                target='_blank'
               >
                 ➤ Rejoindre le Serveur
               </Link>
