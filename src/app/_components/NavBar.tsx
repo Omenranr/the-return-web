@@ -42,7 +42,7 @@ export default async function Navbar() {
           ))}
 
           {/* Discord icon */}
-          <Link href="https://discord.gg/" className="text-2xl">
+          <Link href="https://discord.gg/6cYYUEDhCQ" className="text-2xl">
             <Image src="/discord.svg" alt="Discord" width={40} height={40} />
           </Link>
 

@@ -94,7 +94,7 @@ export default async function Home() {
                 ➤ Rejoindre le Serveur
               </Link>
               <div className="flex justify-center gap-4 mt-4">
-                <a href="https://twitch.tv" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.twitch.tv/thereturn_official" target="_blank" rel="noopener noreferrer">
                   <svg role="img" viewBox="0 0 24 24" width={24} height={24}>
                     <path d={siTwitch.path} fill="#9146FF" />
                   </svg>
