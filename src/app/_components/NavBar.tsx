@@ -25,7 +25,7 @@ export default async function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-12 py-4">
         {/* ── Logo ── */}
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.jpg" alt="The Return RP" width={70} height={20} priority />
+          <Image className="rounded-full object-cover" src="/logo.jpg" alt="The Return RP" width={70} height={20} priority />
         </Link>
 
         {/* ── Navigation group ── */}

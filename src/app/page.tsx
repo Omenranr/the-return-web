@@ -22,7 +22,7 @@ export default async function Home() {
 
     {/* Motif répété (place ton .svg/.webp dans /public) */}
     <div className="absolute inset-0 -z-10 
-                    bg-[url('/background.webp')]    /* ↖ change le nom si besoin  */
+                    bg-[url('/background.webp')]
                     opacity-80 mix-blend-overlay
                     pointer-events-none select-none" />
 
