@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { AuthError } from "next-auth";
 import Image from "next/image";
+import Background from '../_components/Background';
 
 import { signIn } from "~/server/auth";
 
@@ -32,7 +33,8 @@ export default async function SignInPage({
 
   // ── UI ───────────────────────────────────────────────────────────
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4 py-12">
+    <div className="flex min-h-screen items-center justify-center bg-gray-100/50 px-4 py-12">
+      <Background />
       <div className="w-full max-w-md space-y-6 rounded-lg bg-white p-8 shadow-lg">
         {/* Text logo */}
         <div className="flex justify-center">

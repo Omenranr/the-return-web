@@ -1,23 +1,13 @@
-'use client'
+import { auth } from '~/server/auth';
+import { redirect } from 'next/navigation';
+import Navbar from '../_components/NavBar';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { useSession, signOut } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 
-export default function DashboardPage() {
-  const { data: session, status } = useSession()
-  const router = useRouter()
-
-  /* ─────────────── redirect signed‑out users ─────────────── */
-  useEffect(() => {
-    if (status === 'unauthenticated') router.replace('/')
-  }, [status, router])
-
-  if (status === 'loading' || status === 'unauthenticated') {
-    return null // or a full‑screen loader
-  }
+export default async function DashboardPage() {
+  const session = await auth();           // executes on the server
+  if (!session) redirect('/');            // blocks render & returns 302
 
   /* ─────────────── main UI ─────────────── */
   return (
@@ -27,32 +17,7 @@ export default function DashboardPage() {
       <div className="absolute inset-0 -z-10 bg-[url('/background.webp')] bg-repeat bg-[length:140px] opacity-10 mix-blend-overlay" />
 
       {/* top bar */}
-      <header className="bg-[#311c8a]/95 backdrop-blur shadow-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-          <Link href="/">
-            <Image src="/logo.jpg" alt="The Return RP" width={70} height={20} priority />
-          </Link>
-
-          <nav className="flex items-center gap-8 text-sm font-semibold">
-            {["Acceuil", "The Return", "Jouer", "Réglement", "Contact"].map((item) => (
-              <Link key={item} href={`/#${item.toLowerCase()}`} className="hover:text-orange-400">
-                {item}
-              </Link>
-            ))}
-
-            {/* Discord logo */}
-            <Image src="/discord.svg" alt="Discord" width={28} height={28} />
-
-            {/* sign‑out */}
-            <button
-              onClick={() => signOut({ redirect: true, callbackUrl: '/' })}
-              className="rounded-md bg-orange-500 px-4 py-1.5 hover:bg-orange-400"
-            >
-              Déconnexion
-            </button>
-          </nav>
-        </div>
-      </header>
+      <Navbar />
 
       {/* page content */}
       <main className="mx-auto max-w-7xl px-6 md:px-10 pt-10 pb-24 space-y-10">

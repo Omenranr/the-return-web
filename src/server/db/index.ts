@@ -6,8 +6,6 @@
  *  – Keeps a single connection alive in dev (HMR) just like before.
  */
 
-import "server-only";                                // ⬅️  build‑time guard
-
 import { createClient, type Client } from "@libsql/client";
 import { drizzle } from "drizzle-orm/libsql";
 
