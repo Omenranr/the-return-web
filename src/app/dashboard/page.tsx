@@ -1,6 +1,7 @@
 import { auth } from '~/server/auth';
 import { redirect } from 'next/navigation';
 import Navbar from '../_components/NavBar';
+import Background from '../_components/Background';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -11,10 +12,10 @@ export default async function DashboardPage() {
 
   /* ─────────────── main UI ─────────────── */
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#241461] text-white">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#241461]/30 text-white">
       {/* background gradient & pattern */}
-      <div className="absolute inset-0 -z-20 bg-gradient-to-br from-[#3200ff]/40 via-[#1d008e]/60 to-[#12004a]/90" />
-      <div className="absolute inset-0 -z-10 bg-[url('/background.webp')] bg-repeat bg-[length:140px] opacity-10 mix-blend-overlay" />
+      <div className="absolute inset-0 -z-20 bg-gradient-to-br from-[#3200ff] via-[#1d008e]/60 to-[#12004a]/90" />
+      <Background />
 
       {/* top bar */}
       <Navbar />
@@ -26,7 +27,7 @@ export default async function DashboardPage() {
         <section className="flex items-center gap-6 rounded-lg bg-white/10 p-6">
           <div className="h-24 w-24 flex-shrink-0 rounded-full bg-[#0e0a3f] grid place-items-center">
             {session?.user?.image ? (
-                <Image src={session?.user?.image} alt="" width={48} height={48} />
+                <Image src={session?.user?.image} alt="" width={128} height={128} />
           ) : (
             <div className="h-8 w-8 rounded-full bg-gray-400" />
           )}
