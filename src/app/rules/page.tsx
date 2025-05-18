@@ -20,8 +20,8 @@ export default function RulesPage() {
   ];
 
   return (
-    <div className="absolute inset-0 -z-20 min-h-screen bg-gradient-to-br from-[#3200ff]/40 via-[#1d008e]/60 to-[#12004a]/90 text-white">
-      <Background />
+    <div className="text-white">
+    <Background />
       <NavBar />
       <RulesClient cards={cards} />
     </div>

@@ -9,8 +9,7 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Accueil', href: '/#accueil' },
-    { label: 'The Return', href: '/#the-return' },
-    { label: 'Jouer', href: '/#jouer' },
+    { label: 'Rejoindre la WL', href: '/#whitelist' },
     { label: 'Règlement', href: '/rules' },
     { label: 'Contact', href: '/#contact' },
   ];

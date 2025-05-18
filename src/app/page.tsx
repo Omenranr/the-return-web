@@ -20,13 +20,8 @@ export default async function Home() {
   }
 
   return (
-    <div className="absolute inset-0 -z-20 bg-gradient-to-br from-[#3200ff]/40 via-[#1d008e]/60 to-[#12004a]/90 text-white" >
-
-    {/* Motif répété (place ton .svg/.webp dans /public) */}
+    <div className="text-white">
     <Background />
-
-
-
       {/* ───────────────────────── Navigation (distinct colour) ───────────────────────── */}
       <Navbar />
 
@@ -73,19 +68,6 @@ export default async function Home() {
             </p>
 
             <div>
-              {/* <h3 className="text-center font-bold mb-2">Statistiques</h3>
-              <p className="text-center text-sm mb-4">Déjà 22 059 personnages créés !</p>
-
-              <p className="text-sm mb-2 font-semibold">Répartition</p>
-              <div>
-                <p className="text-xs mb-1">Femmes / Hommes / Autres</p>
-                <div className="h-2.5 w-full rounded-full bg-white/20 overflow-hidden">
-                  <div className="h-full bg-pink-500" style={{ width: '30%' }} />
-                  <div className="h-full bg-cyan-500" style={{ width: '63%' }} />
-                  <div className="h-full bg-green-500" style={{ width: '7%' }} />
-                </div>
-              </div> */}
-
               <Link
                 href="https://discord.gg/6cYYUEDhCQ"
                 className="mt-6 block w-full rounded-md bg-[#5865F2] text-white text-center py-2 font-semibold hover:bg-[#4752c4] transition-colors"
