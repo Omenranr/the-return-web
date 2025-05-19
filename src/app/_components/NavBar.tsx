@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';   // client-side hooks
 
 export default function Navbar() {
-  const { data: session, status } = useSession();                // watches auth state
+  const { status } = useSession();                // watches auth state
 
   const navLinks = [
     { label: 'Accueil', href: '/#accueil' },
-    { label: 'Rejoindre la WL', href: '/#whitelist' },
+    // { label: 'Rejoindre la WL', href: '/#whitelist' },
     { label: 'Règlement', href: '/rules' },
     { label: 'Contact', href: '/#contact' },
   ];

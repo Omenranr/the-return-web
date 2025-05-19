@@ -17,14 +17,14 @@ export default async function Status() {
                 )}
                 </div>
                 <div className="flex-1 space-y-2">
-                <h2 className="text-xl font-bold tracking-wide">Vous n'avez pas encore passé le Questionnaire WL</h2>
-                <p className="text-sm opacity-80">Commencez par répondre au questionnaire pour valider vos connaissances de base du RP Gta. Rappel vous n'avez que 3 chances !</p>
+                <h2 className="text-xl font-bold tracking-wide">Vous n&apos;avez pas encore rempli votre Background</h2>
+                <p className="text-sm opacity-80">Pour passer la whitelist remplissez le Background de votre personnage RP.</p>
                 </div>
                 <Link
                 href="fivem://connect/the-return-rp"
                 className="rounded-md bg-lime-500 px-4 py-2 text-sm font-semibold hover:bg-lime-400 whitespace-nowrap"
                 >
-                Passer le questionnaire
+                Remplir le Background
                 </Link>
             </section>
         </>

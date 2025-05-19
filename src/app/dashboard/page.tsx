@@ -5,11 +5,9 @@ import Navbar from '../_components/NavBar';
 import Background from '../_components/Background';
 // Local components:
 import Status from './components/Status';
-import LeftMenu from './components/LeftMenu';
-import RightMenu from './components/RightMenu';
 // External components:
-import Image from 'next/image';
-import Link from 'next/link';
+// import Image from 'next/image';
+// import Link from 'next/link';
 
 
 export default async function DashboardPage() {
@@ -33,12 +31,6 @@ export default async function DashboardPage() {
 
         {/* two‑column grid */}
         <div className="grid lg:grid-cols-[18rem_minmax(0,1fr)] gap-8">
-
-          {/* left column (sidebar) */}
-          <LeftMenu />
-
-          {/* right column */}
-          <RightMenu />
         </div>
       </main>
     </div>
