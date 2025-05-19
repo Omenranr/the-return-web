@@ -5,13 +5,15 @@ import Link from 'next/link';
 import { useSession, signIn, signOut } from 'next-auth/react';   // client-side hooks
 
 export default function Navbar() {
-  const { status } = useSession();                // watches auth state
+  const { data: session, status } = useSession();                // watches auth state
+
+  const isAdmin = session?.user?.role === "ADMIN";
 
   const navLinks = [
     { label: 'Accueil', href: '/' },
     { label: 'Règlement', href: '/rules' },
     { label: 'Media', href: '/media' },
-    { label: 'Backgrounds', href: '/backgrounds' },
+    ...(isAdmin ? [{ label: "Backgrounds", href: "/backgrounds" }] : []),
   ];
 
   return (

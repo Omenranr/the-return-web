@@ -11,9 +11,12 @@ import { type AdapterAccount } from "next-auth/adapters";
 export const createTable = sqliteTableCreator((name) => `the-return_${name}`);
 
 
-/* ─────────────── USER STATUS ENUM ─────────────── */
+/* ──────────── ROLE & STATUS ENUMS ──────────── */
+export const userRoles   = ["USER", "ADMIN"] as const;
+export type  UserRole    = (typeof userRoles)[number];
+
 export const userStatuses = ["BACKGROUND_PENDING", "WHITELIST_PENDING"] as const;
-export type UserStatus = (typeof userStatuses)[number];
+export type  UserStatus   = (typeof userStatuses)[number];
 
 
 /* ----------------- Posts -------------- */
@@ -42,21 +45,22 @@ export const posts = createTable(
 
 /* ----------------- Users -------------- */
 export const users = createTable("user", (d) => ({
-  id: d
-    .text({ length: 255 })
-    .notNull()
-    .primaryKey()
-    .$defaultFn(() => crypto.randomUUID()),
+  id: d.text({ length: 255 }).primaryKey().$defaultFn(() => crypto.randomUUID()),
   name: d.text({ length: 255 }),
   email: d.text({ length: 255 }).notNull(),
   emailVerified: d.integer({ mode: "timestamp" }).default(sql`(unixepoch())`),
   image: d.text({ length: 255 }),
-  // ① NEW — keeps the current step the user is in
+
+  /* NEW — role */
+  role: d
+    .text({ enum: userRoles })
+    .$type<UserRole>()
+    .notNull()
+    .default("USER"),
+
+  /* existing status column */
   status: d
-    .text({
-      /** Drizzle will add a CHECK(...) behind the scenes */
-      enum: userStatuses,
-    })
+    .text({ enum: userStatuses })
     .$type<UserStatus>()
     .notNull()
     .default("BACKGROUND_PENDING"),

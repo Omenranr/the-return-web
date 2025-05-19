@@ -2,7 +2,7 @@ import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { desc } from "drizzle-orm"; 
 
-import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
+import { createTRPCRouter, protectedProcedure, adminProcedure } from "~/server/api/trpc";
 import { backgrounds, users } from "~/server/db/schema";
 
 /* ───────── Zod schema for the form ───────── */
@@ -74,7 +74,7 @@ export const backgroundRouter = createTRPCRouter({
    * GET /api/trpc/background.all
    * Staff listing (everyone’s backgrounds)
    */
-  all: protectedProcedure.query(async ({ ctx }) => {
+  all: adminProcedure.query(async ({ ctx }) => {
     return ctx.db
       .select()
       .from(backgrounds)
