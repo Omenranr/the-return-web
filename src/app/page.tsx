@@ -63,8 +63,8 @@ export default async function Home() {
             <Image src="/nous-rejoindre.webp" alt="Nous rejoindre" width={240} height={120} className="mx-auto mb-6" />
 
             <p className="text-center mb-6">
-              Jouez sur GTA&nbsp;5 via FiveM dès maintenant et rejoignez les{' '}
-              <span className="font-bold">249&nbsp;joueurs</span> connectés actuellement&nbsp;!
+            Clique sur se connecter, envoi ton background et rejoins le Channel Douane afin de passer la WL.{' '} <br/>
+              <span className="font-bold">Nous t&apos;attendons 😉</span>
             </p>
 
             <div>

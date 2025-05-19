@@ -8,10 +8,10 @@ export default function Navbar() {
   const { status } = useSession();                // watches auth state
 
   const navLinks = [
-    { label: 'Accueil', href: '/#accueil' },
-    // { label: 'Rejoindre la WL', href: '/#whitelist' },
+    { label: 'Accueil', href: '/' },
     { label: 'Règlement', href: '/rules' },
-    { label: 'Contact', href: '/#contact' },
+    { label: 'Media', href: '/media' },
+    { label: 'Backgrounds', href: '/backgrounds' },
   ];
 
   return (

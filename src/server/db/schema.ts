@@ -10,6 +10,13 @@ import { type AdapterAccount } from "next-auth/adapters";
  */
 export const createTable = sqliteTableCreator((name) => `the-return_${name}`);
 
+
+/* ─────────────── USER STATUS ENUM ─────────────── */
+export const userStatuses = ["BACKGROUND_PENDING", "WHITELIST_PENDING"] as const;
+export type UserStatus = (typeof userStatuses)[number];
+
+
+/* ----------------- Posts -------------- */
 export const posts = createTable(
   "post",
   (d) => ({
@@ -30,7 +37,10 @@ export const posts = createTable(
     index("name_idx").on(t.name),
   ],
 );
+/* ----------------- /Posts -------------- */
 
+
+/* ----------------- Users -------------- */
 export const users = createTable("user", (d) => ({
   id: d
     .text({ length: 255 })
@@ -41,12 +51,48 @@ export const users = createTable("user", (d) => ({
   email: d.text({ length: 255 }).notNull(),
   emailVerified: d.integer({ mode: "timestamp" }).default(sql`(unixepoch())`),
   image: d.text({ length: 255 }),
+  // ① NEW — keeps the current step the user is in
+  status: d
+    .text({
+      /** Drizzle will add a CHECK(...) behind the scenes */
+      enum: userStatuses,
+    })
+    .$type<UserStatus>()
+    .notNull()
+    .default("BACKGROUND_PENDING"),
 }));
+/* ----------------- /Users -------------- */
 
-export const usersRelations = relations(users, ({ many }) => ({
-  accounts: many(accounts),
+
+/* ----------------- Backgrounds -------------- */
+export const backgrounds = createTable("background", (d) => ({
+  id: d.integer().primaryKey({ autoIncrement: true }),
+  userId: d
+    .text({ length: 255 })
+    .notNull()
+    .unique()
+    .references(() => users.id),
+
+  /* HRP */
+  prenomHrp: d.text(),
+  ageHrp: d.integer(),
+  experienceHrp: d.integer(),
+  presentationHrp: d.text(),
+
+  /* RP */
+  prenomRp: d.text(),
+  nomRp: d.text(),
+  ageRp: d.integer(),
+  typeRp: d.text(),
+  backgroundRp: d.text(),
+
+  createdAt: d.integer({ mode: "timestamp" }).default(sql`(unixepoch())`).notNull(),
+  updatedAt: d.integer({ mode: "timestamp" }).$onUpdate(() => new Date()),
 }));
+/* ----------------- /Backgrounds -------------- */
 
+
+/* ----------------- Accounts -------------- */
 export const accounts = createTable(
   "account",
   (d) => ({
@@ -76,7 +122,10 @@ export const accounts = createTable(
 export const accountsRelations = relations(accounts, ({ one }) => ({
   user: one(users, { fields: [accounts.userId], references: [users.id] }),
 }));
+/* ----------------- /Accounts -------------- */
 
+
+/* ----------------- Sessions -------------- */
 export const sessions = createTable(
   "session",
   (d) => ({
@@ -103,3 +152,13 @@ export const verificationTokens = createTable(
   }),
   (t) => [primaryKey({ columns: [t.identifier, t.token] })],
 );
+/* ----------------- /Sessions -------------- */
+
+export const usersRelations = relations(users, ({ many, one }) => ({
+  accounts: many(accounts),
+  background: one(backgrounds),          // ② NEW
+}));
+
+export const backgroundsRelations = relations(backgrounds, ({ one }) => ({
+  user: one(users, { fields: [backgrounds.userId], references: [users.id] }),
+}));

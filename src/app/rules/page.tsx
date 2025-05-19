@@ -16,7 +16,6 @@ export default function RulesPage() {
     { label: "Meta Illégal",         icon: "/rules/meta-illegal.webp"},
     { label: "Illégal",              icon: "/rules/rules-illegal.webp"},
     { label: "Économie Illégal",     icon: "/rules/economy-illegal.webp"},
-    // { label: "Code Pénal",     icon: "/rules/government-lspd.webp"},
   ];
 
   return (

@@ -13,7 +13,7 @@ export const CardTemplate = ({
 }) => (
   <>
     {headerImg && (
-      <Image src={headerImg} alt={title} className="w-full object-cover" />
+      <Image src={headerImg} width={512} height={512} alt={title} className="w-full object-cover" />
     )}
 
     <h1 className="px-6 py-4 text-2xl font-extrabold tracking-wide text-white">
