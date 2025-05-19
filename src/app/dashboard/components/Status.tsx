@@ -3,13 +3,12 @@ import { db } from "~/server/db";
 import { users } from "~/server/db/schema";
 import { eq } from "drizzle-orm";
 import Image from "next/image";
-import Link from "next/link";
 
 export default async function Status() {
   const session = await auth();
   if (!session?.user?.id) return null;
 
-  /* — fetch exactly one row — */
+  /* fetch the current status */
   const row = (
     await db
       .select({ status: users.status })
@@ -20,22 +19,19 @@ export default async function Status() {
 
   const status = row?.status ?? "BACKGROUND_PENDING";
 
-  const banner =
+  const content =
     status === "WHITELIST_PENDING"
       ? {
           title: "Votre background est enregistré !",
           subtitle:
             "Un membre du staff doit maintenant valider votre whitelist.",
-          cta: { label: "Voir la file d’attente", href: "/whitelist" },
+          badge: "Whitelist en attente",
         }
       : {
           title: "Vous n’avez pas encore rempli votre background",
           subtitle:
             "Pour passer la whitelist, remplissez le background de votre personnage RP.",
-          cta: {
-            label: "Remplir le Background",
-            href: "fivem://connect/the-return-rp",
-          },
+          badge: "Background en attente",
         };
 
   return (
@@ -57,17 +53,14 @@ export default async function Status() {
 
       {/* text */}
       <div className="flex-1 space-y-2">
-        <h2 className="text-xl font-bold tracking-wide">{banner.title}</h2>
-        <p className="text-sm opacity-80">{banner.subtitle}</p>
+        <h2 className="text-xl font-bold tracking-wide">{content.title}</h2>
+        <p className="text-sm opacity-80">{content.subtitle}</p>
       </div>
 
-      {/* action */}
-      <Link
-        href={banner.cta.href}
-        className="whitespace-nowrap rounded-md bg-lime-500 px-4 py-2 text-sm font-semibold hover:bg-lime-400"
-      >
-        {banner.cta.label}
-      </Link>
+      {/* static badge */}
+      <span className="whitespace-nowrap rounded-md bg-lime-500 px-4 py-2 text-sm font-semibold">
+        {content.badge}
+      </span>
     </section>
   );
 }
