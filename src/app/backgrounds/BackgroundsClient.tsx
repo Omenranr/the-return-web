@@ -44,9 +44,16 @@ export default function BackgroundsClient({ rows }: { rows: Row[] }) {
               <p className="text-xs opacity-60">{bg.userEmail}</p>
             </div>
 
-            <span className="rounded bg-lime-600/20 px-3 py-1 text-xs font-medium text-lime-300 w-fit">
-              {bg.typeRp}
+            <span
+            className={`rounded px-3 py-1 text-xs font-medium w-fit
+                ${bg.typeRp === "Illégal"
+                ? "bg-red-600/20 text-red-300"
+                : "bg-lime-600/20 text-lime-300"
+                }`}
+            >
+            {bg.typeRp}
             </span>
+
 
             <time
               dateTime={bg.createdAt}

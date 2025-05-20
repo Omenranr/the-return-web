@@ -1,5 +1,17 @@
-import BackgroundFormClient from './BackgroundFormClient';
+"use client";
 
-export default async function BackgroundForm() {
-  return <BackgroundFormClient />;
+import BackgroundFormClient from "./BackgroundFormClient";
+import { backgrounds } from "~/server/db/schema";
+
+type Background = typeof backgrounds.$inferSelect;
+
+export default function BackgroundForm({
+    existing,
+  }: {
+    existing: Background | null;
+  }) {
+
+
+  /* pass plain JS object to the client */
+  return <BackgroundFormClient initial={existing} />;
 }

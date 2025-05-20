@@ -1,23 +1,12 @@
-import { auth } from "~/server/auth";
-import { db } from "~/server/db";
-import { users } from "~/server/db/schema";
-import { eq } from "drizzle-orm";
+"use client";
+
+import { api } from "~/trpc/react";
 import Image from "next/image";
 
-export default async function Status() {
-  const session = await auth();
-  if (!session?.user?.id) return null;
+export default function Status({ userImage }: { userImage: string | null }) {
 
-  /* fetch the current status */
-  const row = (
-    await db
-      .select({ status: users.status })
-      .from(users)
-      .where(eq(users.id, session.user.id))
-      .limit(1)
-  )[0];
-
-  const status = row?.status ?? "BACKGROUND_PENDING";
+  const { data } = api.background.status.useQuery();
+  const status = data?.status ?? "BACKGROUND_PENDING";
 
   const content =
     status === "WHITELIST_PENDING"
@@ -41,9 +30,9 @@ export default async function Status() {
     >
     {/* avatar */}
     <div className="grid h-20 w-20 md:h-24 md:w-24 flex-shrink-0 place-items-center rounded-full bg-[#0e0a3f]">
-      {session.user.image ? (
+      {userImage ? (
         <Image
-          src={session.user.image}
+          src={userImage}
           alt=""
           width={96}
           height={96}
@@ -63,7 +52,9 @@ export default async function Status() {
     </div>
 
     {/* badge – full-width on mobile, auto on desktop */}
-    <span className="w-full md:w-auto text-center rounded-md bg-lime-500 px-4 py-2 text-sm font-semibold">
+    <span
+        className={`w-full md:w-auto text-center rounded-md px-4 py-2 text-sm font-semibold ${status === "WHITELIST_PENDING" ? "bg-lime-500" : "bg-red-500"}`}
+    >
       {content.badge}
     </span>
   </section>

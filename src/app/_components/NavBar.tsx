@@ -66,14 +66,14 @@ export default function Navbar() {
           {status === 'authenticated' ? (
             <button
               onClick={() => signOut({ callbackUrl: '/' })}
-              className="rounded-md bg-orange-500 px-4 py-2 font-semibold hover:bg-orange-400 transition-colors whitespace-nowrap"
+              className="rounded-md bg-orange-500 px-4 py-2 font-semibold hover:bg-orange-400 transition-colors whitespace-nowrap cursor-pointer"
             >
               Déconnexion
             </button>
           ) : (
             <button
               onClick={() => signIn()}
-              className="rounded-md bg-orange-500 px-4 py-2 font-semibold hover:bg-orange-400 transition-colors whitespace-nowrap"
+              className="rounded-md bg-orange-500 px-4 py-2 font-semibold hover:bg-orange-400 transition-colors whitespace-nowrap cursor-pointer"
             >
               Se connecter
             </button>
@@ -109,14 +109,14 @@ export default function Navbar() {
           {status === 'authenticated' ? (
             <button
               onClick={() => signOut({ callbackUrl: '/' })}
-              className="w-full rounded-md bg-orange-500 px-4 py-2 font-semibold hover:bg-orange-400 transition-colors"
+              className="w-full rounded-md bg-orange-500 px-4 py-2 font-semibold hover:bg-orange-400 transition-colors cursor-pointer"
             >
               Déconnexion
             </button>
           ) : (
             <button
               onClick={() => signIn()}
-              className="w-full rounded-md bg-orange-500 px-4 py-2 font-semibold hover:bg-orange-400 transition-colors"
+              className="w-full rounded-md bg-orange-500 px-4 py-2 font-semibold hover:bg-orange-400 transition-colors cursor-pointer"
             >
               Se connecter
             </button>

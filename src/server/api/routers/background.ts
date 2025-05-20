@@ -75,9 +75,37 @@ export const backgroundRouter = createTRPCRouter({
    * Staff listing (everyone’s backgrounds)
    */
   all: adminProcedure.query(async ({ ctx }) => {
-    return ctx.db
-      .select()
+    const rows = await ctx.db
+      .select({
+        /* meta */
+        id: backgrounds.id,
+        createdAt: backgrounds.createdAt,
+        typeRp: backgrounds.typeRp,
+  
+        /* join */
+        userName: users.name,
+        userEmail: users.email,
+  
+        /* HRP */
+        prenomHrp: backgrounds.prenomHrp,
+        ageHrp: backgrounds.ageHrp,
+        experienceHrp: backgrounds.experienceHrp,
+        presentationHrp: backgrounds.presentationHrp,
+  
+        /* RP */
+        prenomRp: backgrounds.prenomRp,
+        nomRp: backgrounds.nomRp,
+        ageRp: backgrounds.ageRp,
+        backgroundRp: backgrounds.backgroundRp,
+      })
       .from(backgrounds)
+      .leftJoin(users, eq(backgrounds.userId, users.id))
       .orderBy(desc(backgrounds.createdAt));
+  
+    return rows.map((r) => ({
+      ...r,
+      createdAt: r.createdAt.toISOString(),
+      typeRp: r.typeRp ?? "",
+    }));
   }),
 });
