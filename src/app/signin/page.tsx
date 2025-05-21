@@ -57,7 +57,7 @@ export default async function SignInPage({
         <form action={handleDiscordSignIn}>
           <button
             type="submit"
-            className="flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-gray-50"
+            className="flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-gray-50 cursor-pointer"
           >
             {/* Optional small Discord icon (place /public/discord.svg) */}
             <Image src="/discord.svg" alt="" width={18} height={18} />

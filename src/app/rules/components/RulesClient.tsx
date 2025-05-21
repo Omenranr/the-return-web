@@ -34,8 +34,8 @@ export default function RulesClient({ cards }: { cards: Card[] }) {
                 <Image
                   src={card.icon}
                   alt={card.label}
-                  width={96}
-                  height={96}
+                  width={512}
+                  height={512}
                   className="pointer-events-none select-none transition-transform duration-200 ease-out group-hover:scale-110"
                 />
               </div>

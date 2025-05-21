@@ -24,7 +24,33 @@ export default async function Home() {
     <Background />
       {/* ───────────────────────── Navigation (distinct colour) ───────────────────────── */}
       <Navbar />
+      <section className="relative z-10 py-12 px-6 md:px-12">
+        <h2 className="mb-10 text-center text-3xl font-extrabold">
+          Comment rejoindre <span className="text-orange-500">The&nbsp;Return</span> ?
+        </h2>
 
+        {/* ligne horizontale décorative */}
+        <div className="absolute inset-x-6 md:inset-x-12 lg:left-1/2 lg:-translate-x-1/2 top-[90px] lg:top-1/2 lg:-translate-y-1/2 h-px lg:w-[70%] bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none" />
+
+        <ol className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8 max-w-5xl mx-auto text-center">
+          {[
+            { n: 1, label: "Rejoindre le Discord" },
+            { n: 2, label: "Se connecter au siteweb" },
+            { n: 3, label: "Remplir le background" },
+            { n: 4, label: "Passer la whitelist" },
+          ].map(({ n, label }) => (
+            <li
+              key={n}
+              className="relative flex flex-col items-center w-full lg:w-1/4 space-y-3"
+            >
+              <span className="grid h-14 w-14 place-items-center rounded-full bg-orange-500 text-xl font-bold shadow-lg">
+                {n}
+              </span>
+              <p className="max-w-[10rem] lg:max-w-none leading-snug">{label}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
       {/* ───────────────────────── Hero ───────────────────────── */}
       <main className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-[minmax(0,1fr)_28rem] gap-y-16 lg:gap-x-24 px-6 md:px-12 pt-24 pb-32">
         {/* ── Left copy column ── */}

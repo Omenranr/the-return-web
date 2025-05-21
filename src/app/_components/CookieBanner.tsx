@@ -13,7 +13,7 @@ export default function CookieBanner() {
       <div className="relative rounded-lg bg-white text-gray-800 px-6 py-4 shadow-lg">
         <p className="text-sm">
           En naviguant sur notre site internet, vous acceptez notre{' '}
-          <Link href="/privacy" className="font-medium underline">
+          <Link href="#" className="font-medium underline">
             politique de confidentialité &amp; cookies
           </Link>
         </p>
