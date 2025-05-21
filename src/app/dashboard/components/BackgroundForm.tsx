@@ -1,7 +1,7 @@
 "use client";
 
 import BackgroundFormClient from "./BackgroundFormClient";
-import { backgrounds } from "~/server/db/schema";
+import type { backgrounds } from "~/server/db/schema";
 
 type Background = typeof backgrounds.$inferSelect;
 

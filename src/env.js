@@ -14,7 +14,12 @@ export const env = createEnv({
     AUTH_DISCORD_ID: z.string(),
     DATABASE_AUTH_TOKEN: z.string(),
     AUTH_DISCORD_SECRET: z.string(),
+    WL_ROLE_ID: z.string(),
+    GUILD_ID: z.string(),
+    DISCORD_API_BASE_URL: z.string(),
+    DISCORD_BOT_TOKEN: z.string(),
     DATABASE_URL: z.string().url(),
+
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
@@ -37,6 +42,10 @@ export const env = createEnv({
     AUTH_SECRET: process.env.AUTH_SECRET,
     AUTH_DISCORD_ID: process.env.AUTH_DISCORD_ID,
     AUTH_DISCORD_SECRET: process.env.AUTH_DISCORD_SECRET,
+    WL_ROLE_ID: process.env.WL_ROLE_ID,
+    GUILD_ID: process.env.GUILD_ID,
+    DISCORD_BOT_TOKEN: process.env.DISCORD_BOT_TOKEN,
+    DISCORD_API_BASE_URL: process.env.DISCORD_API_BASE_URL,
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
     DATABASE_AUTH_TOKEN: process.env.DATABASE_AUTH_TOKEN,

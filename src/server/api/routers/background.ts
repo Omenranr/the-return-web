@@ -1,9 +1,11 @@
+import axios from 'axios';
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { desc } from "drizzle-orm"; 
+import { env } from "~/env";
 
 import { createTRPCRouter, protectedProcedure, adminProcedure } from "~/server/api/trpc";
-import { backgrounds, users } from "~/server/db/schema";
+import { backgrounds, users, accounts } from "~/server/db/schema";
 
 /* ───────── Zod schema for the form ───────── */
 const BackgroundInput = z.object({
@@ -46,10 +48,81 @@ export const backgroundRouter = createTRPCRouter({
           .update(users)
           .set({ status: "WHITELIST_PENDING" })
           .where(eq(users.id, user.id));
+
+          const account = await tx
+          .select({ providerAccountId: accounts.providerAccountId })
+          .from(accounts)
+          .where(eq(accounts.userId, user.id))
+          .limit(1);
+
+          const discordId = account[0]?.providerAccountId;
+          if (discordId) {
+            try {
+              const url = `${env.DISCORD_API_BASE_URL}/guilds/${env.GUILD_ID}/members/${discordId}/roles/${env.WL_ROLE_ID}`;
+              await axios.put(url, null, {
+                headers: {
+                  Authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
+                  'Content-Type': 'application/json',
+                },
+              });
+              console.log(`Role assigned successfully to Discord user ID: ${discordId}`);
+            } catch (error) {
+              if (axios.isAxiosError(error) && error.response) {
+                console.error(`Error assigning role: ${error.response.status} - ${String(error.response.data)}`);
+              } else {
+                console.error(`Error assigning role: ${String(error)}`);
+              }
+            }
+          }
       });
 
       return { ok: true };
     }),
+
+  /**
+   * GET /api/trpc/server.joined.status
+   * Returns if the user has joined the Discord server or not
+   */
+  joined_guild : protectedProcedure.query(async ({ ctx }) => {
+    const { db } = ctx;
+    const { user } = ctx.session;
+  
+    // Retrieve the user's Discord ID from the accounts table
+    const account = await db
+      .select({ providerAccountId: accounts.providerAccountId })
+      .from(accounts)
+      .where(eq(accounts.userId, user.id))
+      .limit(1);
+  
+    const discordId = account[0]?.providerAccountId;
+  
+    if (!discordId) {
+      return { joined: false };
+    }
+  
+    try {
+      // Attempt to fetch the guild member
+      const url = `${env.DISCORD_API_BASE_URL}/guilds/${env.GUILD_ID}/members/${discordId}`;
+      await axios.get(url, {
+        headers: {
+          Authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
+        },
+      });
+      // If successful, the user is a member of the guild
+      console.log("user is in server");
+      return { joined: true };
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response?.status === 404) {
+        // User is not a member of the guild
+        console.log("user is not in server");
+        return { joined: false };
+      } else {
+        // Handle other errors
+        console.error('Error checking guild membership:', error);
+        return { joined: false };
+      }
+    }
+  }),
 
   /**
    * GET /api/trpc/background.status
