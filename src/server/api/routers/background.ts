@@ -66,6 +66,17 @@ export const backgroundRouter = createTRPCRouter({
                 },
               });
               console.log(`Role assigned successfully to Discord user ID: ${discordId}`);
+              if (env.MODE_PREOPEN == "True") {
+                // Remove NWL_ROLE_ID
+                const removeUrl = `${env.DISCORD_API_BASE_URL}/guilds/${env.GUILD_ID}/members/${discordId}/roles/${env.NWL_ROLE_ID}`;
+                await axios.delete(removeUrl, {
+                  headers: {
+                    Authorization: `Bot ${env.DISCORD_BOT_TOKEN}`,
+                    'Content-Type': 'application/json',
+                  },
+                });
+                console.log(`Role removed successfully from Discord user ID: ${discordId}`);
+              }
             } catch (error) {
               if (axios.isAxiosError(error) && error.response) {
                 console.error(`Error assigning role: ${error.response.status} - ${String(error.response.data)}`);
