@@ -15,7 +15,6 @@ export default function RulesPage() {
     { label: "EMS – Coma",           icon: "/rules/ems-coma.webp"},
     { label: "Meta Illégal",         icon: "/rules/meta-illegal.webp"},
     { label: "Illégal",              icon: "/rules/rules-illegal.webp"},
-    { label: "Économie Illégal",     icon: "/rules/economy-illegal.webp"},
   ];
 
   return (

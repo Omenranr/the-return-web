@@ -14,15 +14,14 @@ export default function RulesIllegal() {
     "Après une rixe, il est interdit de récupérer des objets sur les personnes à terre.",
     "Otages : si vos ravisseurs coupent vos communications, n’utilisez ni téléphone ni radio.",
     "Braquer quelqu’un à un ATM ou le forcer à vider compte/coffre/clé de véhicule est interdit.",
-    "Lors d’un braquage, attendez les forces de l’ordre au moins 10 minutes.",
+    "Lors d’un braquage, attendez les forces de l’ordre au moins 10 minutes pour les banques et 5 minutes pour le petit braquage, cambu, garage, etc.",
     "Demande de groupe officiel : dossier Google Docs via ticket (5 PF / 8 Gang / 10 Famille).",
-    "Vous pouvez avoir autant d’habitants que voulu, mais ils ne participent pas aux actions du groupe.",
+    "Vous pouvez avoir autant d’habitants que vous voulez, mais ils ne participent pas aux actions du groupe.",
     "Action illégale interdite 30 min avant reboot et 15 min après.",
-    "PIT interdits (sauf LSPD après 10 min sur ordre supérieur).",
+    "PIT interdits.",
     "Drive‑by en course‑poursuite interdit.",
     "Otages complices interdits.",
     "Scène de torture : vous devez donner quelques infos sinon vous risquez Mort RP + avertissement.",
-    "Négociations avec LSPD : jamais d’argent – sorties uniquement.",
 
     // 18 – 23 : braquages
     <>
@@ -30,7 +29,7 @@ export default function RulesIllegal() {
       <ul className="ml-4 list-disc space-y-1">
         <li>1 – 3 braqueurs, véhicule 4 places du lore.</li>
         <li>Seul le coffre d’Apu rapporte.</li>
-        <li>Aucun plan spécial toléré.</li>
+        <li>Plan mule, récup, etc interdit.</li>
         <li>Au moins une arme blanche requise.</li>
       </ul>
     </>,
@@ -67,20 +66,16 @@ export default function RulesIllegal() {
 
     // 24 – 32 : conduite de gang & véhicules
     "Favorisez le combat à mains nues ou armes de mêlée pour régler une scène entre gangs.",
-    "Quitter ou trahir un gang : risque de Mort RP (prévenez le staff).",
-    "Action illégale interdite avec véhicule non cohérent, moto/vélo/skate.",
     "Runs drogue interdits avec véhicule d’entreprise.",
-    "Revenir en ‘fils/cousin de’ pour se venger : interdit sauf accord staff.",
-    "Un wipe n’autorise pas à retrouver ancienne condition sans accord staff.",
+    "Revenir en ‘fils/cousin de’ pour se venger : interdit.",
     "Zones interdites sans autorisation : Prison, Porte‑Avion, Fort Zancudo.",
     "Respectez le Fear LSPD : l’illégal doit craindre la police.",
     <>
-      <strong>Aucune alliance criminelle</strong> : pas d’actions communes (enlèvement, descente, braquage…). Entente uniquement pour infos ou paix.  
-      Si deux scènes se croisent, stoppez si le Fair Play ne peut être garanti.
+      <strong>Aucune alliance criminelle</strong> : pas d’actions communes (enlèvement, descente, braquage…). Sauf si missionné par une hiérarchie supérieur.
     </>,
 
     // 33 – 38 : divers
-    "Contre‑braquage interdit (sauf si le braqueur se fait braquer par ≥ 2 personnes).",
+    "Contre‑braquage interdit, premier qui braque à l'avantage (soyez cohérent, n'allez pas braqué 5 personne).",
     "Convois interdits (hors MC).",
     "WARN de groupe : après 3 WARN, fin de projet possible décidée par responsables illégal.",
   ];
