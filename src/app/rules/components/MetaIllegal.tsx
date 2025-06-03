@@ -49,7 +49,7 @@ export default function MetaIllegal() {
                 Entreprise : 1 seule, cohérente ; tous les membres peuvent y
                 travailler
               </li>
-              <li>Business : accessoires d'armement, armes blanches, contrebande et + sous dossier</li>
+              <li>Business : accessoires d&apos;armement, armes blanches, contrebande et + sous dossier</li>
             </ul>
           </li>
 
