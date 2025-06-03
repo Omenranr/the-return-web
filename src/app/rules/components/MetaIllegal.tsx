@@ -16,9 +16,9 @@ export default function MetaIllegal() {
             <ul className="ml-4 list-disc space-y-1">
               <li>3 – 6 joueurs</li>
               <li>Actions&nbsp;: racket, braquage épicerie &amp; maison</li>
-              <li>Drogue&nbsp;: <em>achat → revente</em> uniquement</li>
-              <li>Entreprise&nbsp;: interdite (mais tous peuvent travailler)</li>
-              <li>Marché : possible si cohérent + dossier</li>
+              <li>Drogue&nbsp;: <em>achat → revente</em> PNG uniquement</li>
+              <li>Entreprise&nbsp;: gérance interdite (travail autoriser)</li>
+              <li>Business: proposition possible si cohérent (sous dossiers)</li>
             </ul>
           </li>
 
@@ -28,14 +28,14 @@ export default function MetaIllegal() {
               <li>8 – 15 joueurs</li>
               <li>
                 Actions&nbsp;: racket d’entreprise, braquage épicerie &amp;
-                maison, <strong>guerre de territoire</strong>
+                cambriolage, <strong>guerre de territoire</strong>
               </li>
               <li>Drogue&nbsp;: production, achat, revente</li>
               <li>
                 Entreprise : 1 seule, cohérente avec le lore (max 4 gangsters
                 salariés)
               </li>
-              <li>Marché : production cannabis, possible marché (dossier)</li>
+              <li>Business: production cannabis, et + sous dossier</li>
             </ul>
           </li>
 
@@ -49,7 +49,7 @@ export default function MetaIllegal() {
                 Entreprise : 1 seule, cohérente ; tous les membres peuvent y
                 travailler
               </li>
-              <li>Marché : accessoires d’armement, armes blanches (+dossier)</li>
+              <li>Business : accessoires d&apos;armement, armes blanches, contrebande et + sous dossier</li>
             </ul>
           </li>
 
@@ -57,13 +57,13 @@ export default function MetaIllegal() {
             <strong>Organisation&nbsp;:</strong>
             <ul className="ml-4 list-disc space-y-1">
               <li>6 – 15 joueurs</li>
-              <li>Actions : contrôle des marchés &amp; guerre froide</li>
+              <li>Actions : contrôle des business et &amp; guerre froide</li>
               <li>
                 Drogue : <em>production uniquement</em> (vente PNJ interdite)
               </li>
               <li>Entreprise : 1 seule, cohérente ; tous peuvent travailler</li>
               <li>
-                Marché : armes, drogue, contrebande, influence territoriale
+                MBusiness: armes, drogue, contrebande, influence territoriale
               </li>
             </ul>
           </li>
@@ -83,8 +83,8 @@ export default function MetaIllegal() {
         </p>
         <ul className="ml-4 list-disc space-y-1 text-sm">
           <li>3&nbsp;Brawls = 2&nbsp;pts par brawl gagné</li>
-          <li>1&nbsp;Drive‑by : 1 – 5 pts</li>
-          <li>Kidnapping réussi : 1 – 5 pts</li>
+          <li>1&nbsp;Drive‑by : 1 – 5 pts (Selon originalité)</li>
+          <li>Kidnapping réussi : 1 – 5 pts (Selon originalité)</li>
           <li>Fusillade de fin de guerre : 10 pts</li>
         </ul>
 
@@ -93,11 +93,10 @@ export default function MetaIllegal() {
           que la modération attribue les points.
         </p>
         <p className="mt-2">
-          ⚠️ Guerre uniquement entre deux groupes de même rang, après
+          ⚠️ Guerre uniquement entre deux groupes de même hiérarchie illégal, après
           <strong> 1&nbsp;semaine de conflit RP</strong>. Ticket obligatoire
           pour le comptage. <br />
-          Délai revenge : <strong>2 h minimum</strong>, réponse sous 24 h sinon
-          l’initiative revient à l’adversaire (pas deux actions consécutives).
+          Délai revenge : <strong>2 h minimum</strong>, Si pas de réponse après 24 h, l’adversaire a le droit de faire une nouvelle attaque.
         </p>
         <p className="mt-2">
           ℹ️ Basées sur la possession de laboratoire et de territoire (5 zones
@@ -117,9 +116,9 @@ export default function MetaIllegal() {
           <strong>Barème de points&nbsp;:</strong>
         </p>
         <ul className="ml-4 list-disc space-y-1 text-sm">
-          <li>Gang sous influence avant guerre : 5 pts/gang</li>
-          <li>Drive‑by sur point sensible : 1 – 5 pts</li>
-          <li>Kidnapping ou action réussie : 1 – 5 pts</li>
+          <li>Chaque gang sous votre influence avant la guerre : 5 pts/gang</li>
+          <li>Drive‑by sur point sensible : 1 – 5 pts (QG, entreprise)(labo possible mais attention lourdes répercutions)</li>
+          <li>Kidnapping réussie : 1 – 5 pts</li>
           <li>Fusillade de fin de guerre : 15 pts</li>
         </ul>
 
@@ -129,8 +128,7 @@ export default function MetaIllegal() {
           reprend la main (pas deux actions consécutives).
         </p>
         <p className="mt-2">
-          ℹ️ Guerres basées sur l’influence sur les gangs et la possession de
-          marchés illégaux.
+          ℹ️ Guerres basées sur l’influence sur les gangs et la possession de business illégaux.
         </p>
       </Aside>
     </CardTemplate>
