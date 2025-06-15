@@ -43,7 +43,7 @@ export default function RulesIllegal() {
         <li>2 véhicules max.</li>
         <li>Plan mule toléré après 10 min.</li>
         <li>≥ 1 arme de poing requise.</li>
-        <li>Fenêtre de négociation LSPD obligatoire.</li>
+        <li>Fenêtre de négociation SASP obligatoire.</li>
       </ul>
     </>,
     <>
@@ -51,7 +51,7 @@ export default function RulesIllegal() {
       <ul className="ml-4 list-disc space-y-1">
         <li>4 – 6 braqueurs, 2 otages min.</li>
         <li>≥ 1 arme de poing/braqueur.</li>
-        <li>Fenêtre négociation LSPD + plan mule après 10 min.</li>
+        <li>Fenêtre négociation SASP + plan mule après 10 min.</li>
       </ul>
     </>,
     <>
@@ -59,7 +59,7 @@ export default function RulesIllegal() {
       <ul className="ml-4 list-disc space-y-1">
         <li>10 braqueurs, 6‑7 otages.</li>
         <li>≥ 4 armes de poing + 1 arme lourde.</li>
-        <li>Fenêtre de négociation LSPD obligatoire.</li>
+        <li>Fenêtre de négociation SASP obligatoire.</li>
         <li>Mort RP activée ou lourdes conséquences.</li>
       </ul>
     </>,
@@ -69,7 +69,7 @@ export default function RulesIllegal() {
     "Runs drogue interdits avec véhicule d’entreprise.",
     "Revenir en ‘fils/cousin de’ pour se venger : interdit.",
     "Zones interdites sans autorisation : Prison, Porte‑Avion, Fort Zancudo.",
-    "Respectez le Fear LSPD : l’illégal doit craindre la police.",
+    "Respectez le Fear SASP : l’illégal doit craindre la police.",
     <>
       <strong>Aucune alliance criminelle</strong> : pas d’actions communes (enlèvement, descente, braquage…). Sauf si missionné par une hiérarchie supérieur.
     </>,
@@ -85,7 +85,7 @@ export default function RulesIllegal() {
     <CardTemplate title="Illégal" headerImg="/rules/rules-illegal.webp">
       <ul className="list-decimal list-inside space-y-3 text-sm leading-relaxed">
         {rules.map((rule, idx) => (
-          <li key={idx}>Art.&nbsp;{idx + 1} – {rule}</li>
+          <li key={idx}>{rule}</li>
         ))}
       </ul>
     </CardTemplate>

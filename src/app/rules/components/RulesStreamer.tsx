@@ -19,15 +19,11 @@ export default function RulesStreamer() {
       {/* guidelines ---------------------------------------------------- */}
       <h2 className="font-semibold text-orange-300 mt-6">LES PRÉCONISATIONS</h2>
       <ul className="ml-4 list-disc list-inside space-y-1 text-sm">
-        <li>2&nbsp;semaines d’ancienneté sur Urban Story</li>
-        <li>Masquer la map en jeu pendant le stream</li>
-        <li>Prendre contact avec le Community Manager</li>
+        <li>2&nbsp;semaines d’ancienneté sur The Return</li>
       </ul>
 
       <h2 className="font-semibold text-orange-300 mt-6">À NE PAS FAIRE</h2>
       <ul className="ml-4 list-disc list-inside space-y-1 text-sm">
-        <li>Révéler les emplacements des labos / lieux de farm illégaux</li>
-        <li>Mentionner le nom d’un joueur sans son accord</li>
         <li>Streamer les réunions communautaires (BDA, voc staff…)</li>
       </ul>
     </CardTemplate>

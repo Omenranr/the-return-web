@@ -65,22 +65,6 @@ export default function RulesDiscord() {
       </Aside>
 
       {/* ---------------------------------------------------------------- */}
-      {/* 4 . Discords communautaires                                     */}
-      {/* ---------------------------------------------------------------- */}
-      <Aside
-        emoji={<Image src="/discord.svg" alt="Discord" width={24} height={24} />}
-      >
-        <h3 className="font-semibold text-orange-300">
-          Discords communautaires
-        </h3>
-        <p>
-          La création d’un <strong>Discord entreprise</strong> est interdite.
-          Utilisez les salons mis à disposition. Besoin de plus de canaux ? Vous
-          pouvez en faire la demande (15 maximum) auprès d’un administrateur.
-        </p>
-      </Aside>
-
-      {/* ---------------------------------------------------------------- */}
       {/* 5 . Staff                                                       */}
       {/* ---------------------------------------------------------------- */}
       <Aside emoji="🥷">
@@ -92,7 +76,7 @@ export default function RulesDiscord() {
         </p>
         <p className="mt-2">
           Si vous rencontrez un problème avec un membre du staff, ouvrez un
-          ticket de conflit pour en discuter avec les responsables.
+          ticket pour en discuter avec les responsables.
         </p>
         <p className="mt-2">
           Merci de ne pas mentionner ni DM le staff sur Discord ; ouvrez un

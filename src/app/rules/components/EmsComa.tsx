@@ -10,18 +10,16 @@ export default function EmsComa() {
     "Le respect des différents services et fonctions est obligatoire.",
     "L’utilisation des véhicules de service est obligatoire quand l’agent est en exercice.",
     // Art. 4–7 : blessures détaillées (gardées longues pour clarté)
-    "Poings : simple bagarre. Vous prenez un choc, êtes un peu faible mais vous vous souvenez de la scène et de son contexte.",
-    "Couteau, cran d’arrêt, arme contondante : blessure très sérieuse ; mémoire floue après réanimation. Le joueur hésite à identifier formellement l’agresseur. (Prise en charge LSMS)",
-    "Arme à feu : blessure importante ; le personnage ne se souvient pas de l’agresseur précis, mais retient l’action et quelques détails (vêtements, phrase marquante…). (Prise en charge EMS)",
-    "Être dans le coma à plusieurs reprises par arme à feu mènera à une Mort Roleplay certaine. Tout NO FEAR face à une arme à feu peut entraîner une Mort Roleplay imposée par le staff.",
+    "Règle du coma : Vous vous souvenez de tous mais montré que c'est légerement flou pendant votre PainRp",
+    "Tout NO FEAR face à une arme à feu peut entraîner une Mort Rp imposée par le staff.",
     // Art. 9
     "Interdit de parler, écouter ou communiquer sous quelque forme que ce soit lorsque vous êtes dans le coma. Ne prenez pas d’informations RP dans cet état.",
     // Art. 10
-    "Un /me décrivant la raison de l’accident, la douleur, etc., est obligatoire et aide les EMS à jouer un soin cohérent.",
+    "Un /me décrivant la raison de l’accident, la douleur. C'est important pour aidé les EMS à appliquer un soin cohérent.",
     // Art. 11
-    "K.O : si vous tombez après un coup, jouez les séquelles (mal de tête, être sonné…). En fight illégal, impossible de retourner se battre.",
+    "K.O : si vous tombez après un coup, jouez votre Pain. Lors d'un brawl, ne retourner pas vous battre, soyez cohérent.",
     // Art. 12
-    "Un ITT (incapacité temporaire de travail) ne peut dépasser 24 h (12 h si pas d'arme blanche / à feu). Jouez‑le de façon cohérente : boiter, chaise roulante, pas de combat.",
+    "Un ATA (arrêt temporaire d'activité) doit être joué si le docteur vous l'impose. Jouez‑le de façon cohérente : boiter, chaise roulante, pas de combat. Attention ! Si vous trouvez que l'ATA imposé par le docteur est disproportionné, faite un ticket avec preuve à l'appuie, le staff jugera la situation.",
   ] as const;
 
   return (
@@ -35,7 +33,7 @@ export default function EmsComa() {
       {/* Numbered list -------------------------------------------------- */}
       <ul className="list-decimal list-inside space-y-3 text-sm leading-relaxed">
         {articles.map((text, idx) => (
-          <li key={idx}>Art.&nbsp;{idx + 1} – {text}</li>
+          <li key={idx}>{text}</li>
         ))}
       </ul>
     </CardTemplate>

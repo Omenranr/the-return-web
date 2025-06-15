@@ -10,7 +10,7 @@ export default function RulesPage() {
     { label: "Règlement Streamer",   icon: "/rules/rules-streamers.webp" },
     { label: "Lore de The Return",   icon: "/rules/lore.webp" },
     { label: "Règlement Discord",    icon: "/rules/rules-discord.webp" },
-    { label: "Gouvernement – LSPD",  icon: "/rules/government-lspd.webp"},
+    { label: "Gouvernement – SASP",  icon: "/rules/government-lspd.webp"},
     { label: "Entreprise",           icon: "/rules/companies.webp"},
     { label: "EMS – Coma",           icon: "/rules/ems-coma.webp"},
     { label: "Meta Illégal",         icon: "/rules/meta-illegal.webp"},
